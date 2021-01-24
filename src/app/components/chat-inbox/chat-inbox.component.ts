@@ -22,6 +22,7 @@ export class ChatInboxComponent implements OnInit {
     this.socket = io.io(SOCKET_ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']});
     this.socket.on('message-broadcast', (data: string) => {
       if (data) {
+        
        const element = document.createElement('li');
        element.innerHTML = data;
        element.style.background = 'white';
