@@ -9,11 +9,12 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "dev" : "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --aot -prod"
   },
   "dependencies": {
     "@angular/animations": "9.0.6",
@@ -47,8 +48,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.900.6",
-    "@angular/cli": "^9.0.6",
-    "@angular/compiler-cli": "^9.0.6",
     "@angular/language-service": "9.0.6",
     "@types/jasmine": "3.5.9",
     "@types/node": "13.9.1",
@@ -63,8 +62,7 @@
     "karma-jasmine-html-reporter": "1.5.2",
     "protractor": "5.4.3",
     "ts-node": "3.0.4",
-    "tslint": "6.1.0",
-    "typescript": "3.7.5"
+    "tslint": "6.1.0"
   },
   "engines": {
     "node": "10.16.3",
