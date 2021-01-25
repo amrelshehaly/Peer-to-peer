@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  UrlAPI : 'https://shehaly-studio.herokuapp.com/',
 };

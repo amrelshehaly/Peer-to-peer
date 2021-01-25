@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { User } from '../model/user.model'
 import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
+import {environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
 
 
   // Url:String = 'https://shehaly-studio.herokuapp.com/'
-  localhost: String = 'http://localhost:3000/'
+  localhost: String = environment.UrlAPI
   constructor(private http: HttpClient, private router: Router) { }
 
   private user = new BehaviorSubject<User>(null)

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client'
+import { environment } from '../../../environments/environment'
 
-const SOCKET_ENDPOINT = 'http://localhost:3000/';
+const SOCKET_ENDPOINT = environment.UrlAPI;
 
 @Component({
   selector: 'app-chat-inbox',

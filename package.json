@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "heroku-postbuild": "ng build --prod"
   },
   "dependencies": {
     "@angular/animations": "9.0.6",
@@ -42,8 +43,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.900.6",
-    "@angular/cli": "9.0.6",
-    "@angular/compiler-cli": "9.0.6",
+    "@angular/cli": "^9.0.6",
+    "@angular/compiler-cli": "^9.1.13",
     "@angular/language-service": "9.0.6",
     "@types/jasmine": "3.5.9",
     "@types/node": "13.9.1",

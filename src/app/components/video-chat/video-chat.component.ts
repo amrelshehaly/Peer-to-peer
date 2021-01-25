@@ -51,7 +51,7 @@ export class VideoChatComponent implements OnInit {
           console.log("answerd");
           console.log(remotestream);
           const mediaStream = new MediaStream(remotestream);
-          const videoStream = <HTMLVideoElement>document.getElementById('videoelement')
+          const videoStream = <HTMLMediaElement>document.getElementById('videoelement')
           videoStream.srcObject = mediaStream;
           // video.src = URL.createObjectURL(remotestream);
           videoStream.play();
@@ -96,7 +96,7 @@ export class VideoChatComponent implements OnInit {
 
     browser.mediaDevices.getUserMedia(config).then(stream => {
       const mediaStream = new MediaStream(stream);
-      const videoStream = <HTMLVideoElement>document.getElementById('videoelement')
+      const videoStream = <HTMLMediaElement>document.getElementById('videoelement')
       videoStream.srcObject = mediaStream;
       // this.ownVideo.src = window.URL.createObjectURL(stream);
       videoStream.play();
@@ -116,10 +116,16 @@ export class VideoChatComponent implements OnInit {
       call.on('stream', function (remotestream) {
         console.log(video);
         const mediaStream = new MediaStream(remotestream);
-        const videoStream = <HTMLVideoElement>document.querySelector('#myvideo')
+        const videoStream = <HTMLMediaElement>document.querySelector('#myvideo')
         videoStream.srcObject = mediaStream;
         // video.src = URL.createObjectURL(remotestream);
-        videoStream.play();
+        var playPromise =  videoStream.play();
+        if(playPromise !== undefined){
+          playPromise.then(_=>{
+            console.log(_)
+            // videoStream.pause();
+          })
+        }
       })
     }, function (err) {
       console.log('Failed to get stream', err);
