@@ -13,7 +13,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "dependencies": {
     "@angular/animations": "9.0.6",
@@ -36,6 +36,7 @@
     "jw-bootstrap-switch-ng2": "2.0.1",
     "ng2-nouislider": "1.7.12",
     "nouislider": "9.2.0",
+    "path": "^0.12.7",
     "peerjs": "^0.3.22",
     "popper.js": "1.14.4",
     "rxjs": "6.5.4",
