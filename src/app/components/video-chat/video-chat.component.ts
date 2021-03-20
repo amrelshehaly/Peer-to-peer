@@ -19,11 +19,11 @@ export class VideoChatComponent implements OnInit {
   ownVideo: any;
   peer;
   anotherid;
-  mypeerid;
-  visible:boolean = true
+  mypeerid = "Please wait loading ID";
+  visible:boolean = false
+  connection:any;
 
-  constructor() {
-  }
+  constructor() {}
 
   firstRun(){
     this.ownVideo = this.videoElement.nativeElement;
@@ -33,11 +33,13 @@ export class VideoChatComponent implements OnInit {
       this.mypeerid = this.peer.id;
     }, 3000);
 
-    this.peer.on('connection', function (conn) {
+    this.peer.on('connection',  (conn)=>{
+      this.connection = conn;
       conn.on('data', function (data) {
         console.log(data);
       });
     });
+    
 
     var n = <any>navigator;
 
@@ -64,19 +66,24 @@ export class VideoChatComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    document.getElementById('call_btn').style.display = "none"
     
     setTimeout(()=>{
       this.firstRun()
     },1000)
       
-    //this.start()
+    // this.start()
     
   }
 
   connect() {
     var conn = this.peer.connect(this.anotherid);
     conn.on('open', function () {
-      conn.send('Message from that id');
+      document.getElementById('call_btn').style.display = "block"
+      conn.send(`Message from that id`);
+    },err =>{
+      console.log(err)
     });
   }
 

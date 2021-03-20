@@ -7,6 +7,11 @@ import { AppRoutingModule } from './app.routing';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { UserService } from './services/user.service'
+import {NavbarService} from './services/navbar.service'
+import {NgxSpinnerModule} from 'ngx-spinner'
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {ToastrModule} from 'ngx-toastr'
 
 
 import { AppComponent } from './app.component';
@@ -31,12 +36,21 @@ import { ExamplesModule } from './examples/examples.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar : true,
+      progressAnimation : 'increasing',
+      preventDuplicates : true
+    })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
-    UserService
+    UserService,
+    NavbarService,
   ],
   bootstrap: [AppComponent]
 })

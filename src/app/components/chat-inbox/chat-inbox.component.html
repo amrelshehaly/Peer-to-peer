@@ -1,13 +1,28 @@
-<div class="chat-messages">
-    <div class="chat-messages-show-container">
-      <ul class="chat-messages-show-list">
-          <div id="message-list">
+<div class="wrapper">
+  <div class="page-header" data-parallax="true" style="background-image: url('./assets/img/navyBlue_img.jpg');">
+    <div class="filter"></div>
+    <div class="motto">
+      <!-- <div class="chat-messages">
+        <div class="chat-messages-show-container">
+          <ul class="chat-messages-show-list">
+            <div id="message-list">
 
-          </div>
-      </ul>
+            </div>
+          </ul>
+        </div>
+        <div class="chat-messages-create-container">
+          <input _ngcontent-yjc-c117="" type="text" [(ngModel)]="message"  placeholder="Type message here" class="form-control chat-messages-create-input">
+          <button _ngcontent-kku-c117="" type="button" (click)="SendMessage()" class="btn btn-success btn-round chat-messages-create-button">Send</button>
+        </div>
+      </div> -->
+
+      <div class="one" id="one" #one>
+
+      </div>
+
+      <input _ngcontent-yjc-c117="" type="text" [(ngModel)]="message"  placeholder="Type message here" class="form-control chat-messages-create-input">
+      <button _ngcontent-kku-c117="" type="button" (click)="SendMessage()" class="btn btn-success btn-round chat-messages-create-button">Send</button>
+
     </div>
-    <div class="chat-messages-create-container"> 
-      <input class="chat-messages-create-input" type="text" [(ngModel)]="message">
-      <button  class="chat-messages-create-button" (click)="SendMessage()"> Send </button>
-    </div>
- </div>
+  </div>
+</div>

@@ -1,10 +1,38 @@
-    
-<div  style="margin-top: 70%;" *ngIf=visible>
-    <h1>My id - {{mypeerid}}</h1>
-    <input type="text" [(ngModel)]="anotherid">
-    <button (click)="connect()">Connect</button>
-    <button (click)="videoconnect()">VideoChat</button>
-    <video #videoElement id="videoelement"></video>
-    <video #myvideo id="myvideo"></video>
-</div>    
-    
+<div class="wrapper">
+    <div class="page-header" data-parallax="true" style="background-image: url('./assets/img/navyBlue_img.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="motto text-center">
+                <h1>Please make sure to enable videocam and michrophone on your browser</h1>
+                <div>
+                    <h1>My id - {{mypeerid}}</h1>
+                    <div class="code_input">
+                        <input _ngcontent-fun-c113="" [(ngModel)]="anotherid" type="text" id="inputSuccess1" class="form-control form-control-success">
+                        <button _ngcontent-ped-c113="" (click)="connect()"  class="btn btn-info btn-round">
+                            connect 
+                        </button>                    
+                        <button id="call_btn" _ngcontent-ped-c113=""  (click)="videoconnect()" class="btn btn-outline-success btn-round">
+                            Call
+                        </button>
+                        <button  [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Leave Meeting</button>
+                    </div>
+                    
+                
+                    <div class="video_container">
+                        <div>
+                            <video #videoElement id="videoelement"></video>
+                            <h4>Guest</h4>
+                        </div>
+                        <div>
+                            <video #myvideo id="myvideo"></video>
+                            <h4>You</h4>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

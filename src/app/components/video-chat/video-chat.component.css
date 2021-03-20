@@ -1,0 +1,27 @@
+.page-header-xs {
+    height: 100vh;
+}
+
+.id{
+    color: white;
+}
+
+input{
+    width: 200px;
+    margin-right: 30px;
+}
+
+.code_input ,
+.video_container
+{
+    display: inline-flex;
+}
+
+.page-header .motto {
+    text-align: left;
+    z-index: 3;
+    color: #fff;
+    position: relative;
+    margin-top: 190px
+}
+

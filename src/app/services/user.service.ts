@@ -28,7 +28,7 @@ export class UserService {
     }).pipe(
       catchError(this.handleError),
       tap(resData => {
-        console.log(resData)
+        // console.log(resData)
         this.handleAuthentication(
           resData.user,
           resData.token,
@@ -40,11 +40,21 @@ export class UserService {
   }
 
   signUp(Cred) {
-    return this.http.post(this.localhost + '/users', {
+    return this.http.post<User>(this.localhost + 'users', {
       email: Cred.email,
       password: Cred.password,
       name: Cred.name
-    })
+    }).pipe(
+      catchError(this.handleError),
+      tap(resData => {
+        // console.log(resData)
+        this.handleAuthentication(
+          resData.user,
+          resData.token,
+          resData.avatar
+        )
+      })
+    )
   }
 
   handleAuthentication(
@@ -54,7 +64,7 @@ export class UserService {
   ) {
 
     const newUser = new User(user, token, avatar)
-    console.log(newUser)
+    // console.log(newUser)
     localStorage.setItem('user',JSON.stringify(newUser))
     localStorage.setItem('token',JSON.stringify(newUser.token))
     this.user.next(newUser)
@@ -65,7 +75,7 @@ export class UserService {
     if(!user){
       return
     }
-    this.router.navigate(['home']);
+    this.router.navigate(['user-profile']);
     this.user.next(user)
   }
 

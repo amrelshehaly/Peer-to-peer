@@ -5,23 +5,26 @@
     <div class="section profile-content">
         <div class="container">
             <div class="owner">
-                <div class="avatar">
+                <div class="avatar" *ngIf="imageToShow">
                     <img [src]="imageToShow" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
+                <div class="avatar" *ngIf="!imageToShow">
+                    <img src="assets/img/faces/clem-onojeghuo-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                </div>
                 <div class="name">
-                    <h4 class="title">Jane Faker<br /></h4>
+                    <h4 class="title">{{user}}<br /></h4>
                     <h6 class="description">Music Producer</h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                    <p>An artist of considerable range, {{user}} — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
                     <br />
-                    <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button>
+                    <!-- <button class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</button> -->
                 </div>
             </div>
             <br/>
-            <div class="nav-tabs-navigation">
+            <!-- <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
                     <ngb-tabset [justify]="'center'">
                         <ngb-tab title="Follows">
@@ -80,7 +83,7 @@
                         </ngb-tab>
                     </ngb-tabset>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
