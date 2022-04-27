@@ -71,7 +71,7 @@ export class SignupComponent implements OnInit {
                 this.Route.navigate(['user-profile'])
             }, err =>{
                 this.nav.hideSpinner()
-                this.toast.error("","Password or Email is incorrect",{
+                this.toast.error("","This Email already Exist !",{
                     timeOut:3000
                 })
                 console.log(err)
