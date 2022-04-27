@@ -16,12 +16,12 @@ export class ProfileComponent implements OnInit {
     constructor(private sanitizer: DomSanitizer, private UserService: UserService, public nav : NavbarService) {}
 
     ngOnInit() { 
-        this.UserService.$user.subscribe(res=>{
-            this.getImageFromService()
-            this.user = res.user.name
-            },err =>{
-            console.log(err)
-        })
+        // this.UserService.$user.subscribe(res=>{
+        //     this.getImageFromService()
+        //     this.user = res.user.name
+        //     },err =>{
+        //     console.log(err)
+        // })
     }
 
     createImageFromBlob(image: Blob) {
@@ -47,6 +47,10 @@ export class ProfileComponent implements OnInit {
             // console.log(error);
             this.nav.hideSpinner()
         });
+    }
+
+    joinWithGoogle(){
+        window.open('https://shehaly-studio.herokuapp.com/auth/google');
     }
 
 }

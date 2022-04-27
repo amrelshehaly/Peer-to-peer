@@ -12,9 +12,7 @@ import {ChatInboxComponent} from './components/chat-inbox/chat-inbox.component';
 import {VideoChatComponent} from './components/video-chat/video-chat.component'
 
 const routes: Routes =[
-    { path: '',                  component: SignupComponent },
-    { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
+    { path: '',     component: ProfileComponent },
     { path: 'signup',           component: SignupComponent  },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },

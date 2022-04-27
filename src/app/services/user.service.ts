@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { User } from '../model/user.model'
 import { Router } from '@angular/router';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 import {environment} from '../../environments/environment'
 
 @Injectable({
@@ -17,8 +17,19 @@ export class UserService {
   localhost: String = environment.UrlAPI
   constructor(private http: HttpClient, private router: Router) { }
 
-  private user = new BehaviorSubject<User>(null)
-  public $user = this.user.asObservable()
+  private _user = new BehaviorSubject<User>({} as User)
+  public $user = this._user.asObservable()
+
+
+  get user (): User{
+    return this._user.getValue();
+  }
+  
+  
+  set user(v : User) {
+    this._user.next(v)
+  }
+  
 
   login(input) {
 
@@ -57,6 +68,15 @@ export class UserService {
     )
   }
 
+  logout(){
+    return this.http.post(this.localhost+ 'users/logout', null)
+    
+  }
+
+  logout_All(){
+    return this.http.post(this.localhost+ 'users/logoutAll', null)
+  }
+
   handleAuthentication(
     user,
     token,
@@ -67,7 +87,7 @@ export class UserService {
     // console.log(newUser)
     localStorage.setItem('user',JSON.stringify(newUser))
     localStorage.setItem('token',JSON.stringify(newUser.token))
-    this.user.next(newUser)
+    this.user = newUser
   }
 
   autoLogin() {
@@ -76,7 +96,7 @@ export class UserService {
       return
     }
     this.router.navigate(['user-profile']);
-    this.user.next(user)
+    this.user = user
   }
 
   private handleError(errorRes: HttpErrorResponse) {
