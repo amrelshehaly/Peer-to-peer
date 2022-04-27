@@ -7,7 +7,7 @@
 
 # dependencies
 /node_modules
-/src/environments
+/src/environments/**
 /documentation
 package-lock.json
 
