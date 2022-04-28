@@ -28,7 +28,12 @@ export class VideoChatComponent implements OnInit {
   firstRun(){
     this.ownVideo = this.videoElement.nativeElement;
     let video = this.videoElement.nativeElement;
-    this.peer = new Peer();
+    this.peer = new Peer({
+      host: "0.peerjs.com",
+      port: 443,
+      path: "/",
+      pingInterval: 5000,
+    });
     setTimeout(() => {
       this.mypeerid = this.peer.id;
     }, 3000);
